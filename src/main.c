@@ -15,11 +15,6 @@
 
 void setup_gpios_ssd1306(void);
 void setup_gpios_gy302(void);
-void draw_temp(int temp);
-void draw_humidity(int humidity);
-void draw_lumen(float lumen);
-void draw_water(int water);
-void draw_soil(int soil);
 void read_lumen();
 bool read_dht11();
 void read_water();
@@ -201,46 +196,6 @@ void displayValue(){
     default:
         break;
     }
-}
-
-void draw_temp(int temp) {
-    ssd1306_clear(&disp);
-    char tempString[50];
-    sprintf(tempString, "Temperature: %d", temp);
-    ssd1306_draw_string(&disp, 8, 2, 1, tempString);
-    ssd1306_show(&disp);
-}
-
-void draw_humidity(int humidity) {
-    ssd1306_clear(&disp);
-    char humidityString[50];
-    sprintf(humidityString, "Humidity: %d", humidity);
-    ssd1306_draw_string(&disp, 8, 2, 1, humidityString);
-    ssd1306_show(&disp);
-}
-
-void draw_lumen(float lumen) {
-    ssd1306_clear(&disp);
-    char lumenString[50];
-    sprintf(lumenString, "Lumen: %f", lumen);
-    ssd1306_draw_string(&disp, 8, 2, 1, lumenString);
-    ssd1306_show(&disp);
-}
-
-void draw_water(int water){
-    ssd1306_clear(&disp);
-    char waterString[50];
-    sprintf(waterString, "Water: %d", water);
-    ssd1306_draw_string(&disp, 8, 2, 1, waterString);
-    ssd1306_show(&disp);
-}
-
-void draw_soil(int soil){
-    ssd1306_clear(&disp);
-    char soilString[50];
-    sprintf(soilString, "Soil Moisture: %d", soil);
-    ssd1306_draw_string(&disp, 8, 2, 1, soilString);
-    ssd1306_show(&disp);
 }
 
 void read_water(){

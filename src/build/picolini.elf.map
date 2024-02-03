@@ -61,26 +61,6 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/picolini.dir/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/picolini.dir/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/picolini.dir/main.c.obj
- .rodata.draw_temp.str1.4
-                0x00000000       0x10 CMakeFiles/picolini.dir/main.c.obj
- .text.draw_temp
-                0x00000000       0x3c CMakeFiles/picolini.dir/main.c.obj
- .rodata.draw_humidity.str1.4
-                0x00000000        0xd CMakeFiles/picolini.dir/main.c.obj
- .text.draw_humidity
-                0x00000000       0x3c CMakeFiles/picolini.dir/main.c.obj
- .rodata.draw_lumen.str1.4
-                0x00000000        0xa CMakeFiles/picolini.dir/main.c.obj
- .text.draw_lumen
-                0x00000000       0x44 CMakeFiles/picolini.dir/main.c.obj
- .rodata.draw_water.str1.4
-                0x00000000        0xa CMakeFiles/picolini.dir/main.c.obj
- .text.draw_water
-                0x00000000       0x3c CMakeFiles/picolini.dir/main.c.obj
- .rodata.draw_soil.str1.4
-                0x00000000       0x12 CMakeFiles/picolini.dir/main.c.obj
- .text.draw_soil
-                0x00000000       0x3c CMakeFiles/picolini.dir/main.c.obj
  .text.read_water
                 0x00000000       0x48 CMakeFiles/picolini.dir/main.c.obj
  .text.read_soil
@@ -1204,9 +1184,9 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .data          0x00000000        0x0 CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .bss           0x00000000        0x0 CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
- .text          0x00000000        0x0 /tmp/ccGOg8Yd.o
- .data          0x00000000        0x0 /tmp/ccGOg8Yd.o
- .bss           0x00000000        0x0 /tmp/ccGOg8Yd.o
+ .text          0x00000000        0x0 /tmp/ccD13Kwo.o
+ .data          0x00000000        0x0 /tmp/ccD13Kwo.o
+ .bss           0x00000000        0x0 /tmp/ccD13Kwo.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000       0x10 /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atexit.o)
@@ -1386,7 +1366,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/ccGOg8Yd.o
+ .boot2         0x10000000      0x100 /tmp/ccD13Kwo.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -2655,7 +2635,7 @@ LOAD CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/lib/tinyusb/src/co
 LOAD CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 LOAD CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
-LOAD /tmp/ccGOg8Yd.o
+LOAD /tmp/ccD13Kwo.o
 LOAD /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -2777,7 +2757,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000826       0x2c CMakeFiles/picolini.dir/home/can/Documents/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .ARM.attributes
-                0x00000852       0x22 /tmp/ccGOg8Yd.o
+                0x00000852       0x22 /tmp/ccD13Kwo.o
  .ARM.attributes
                 0x00000874       0x1e /usr/lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
