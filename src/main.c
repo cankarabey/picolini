@@ -20,12 +20,15 @@ bool read_dht11();
 void read_water();
 void read_soil();
 void displayValue();
+void button_isr(uint gpio, uint32_t events);
 
 int temp = 0;
 int humidity = 0;
 float lumen = 0;
 int water = 0;
 int soil = 0;
+
+uint64_t lastReadTime = 0;
 
 char displayString[50];
 
@@ -45,7 +48,7 @@ const char* sensorStrings[] = {
     "Soil Moisture: "
 };
 
-enum Sensor currentSensor = TEMPERATURE;
+volatile enum Sensor currentSensor = LUMEN;
 
 ssd1306_t disp;
 
@@ -57,6 +60,7 @@ int main() {
     gpio_init(BUTTON_PIN);
     gpio_set_dir(BUTTON_PIN, GPIO_IN);
     gpio_pull_up(BUTTON_PIN);
+    gpio_set_irq_enabled_with_callback(BUTTON_PIN, GPIO_IRQ_EDGE_FALL, true, &button_isr);
 
     // Setup ADC
     adc_init();
@@ -71,8 +75,19 @@ int main() {
     disp.external_vcc=false;
     ssd1306_init(&disp, 128, 32, 0x3C, i2c1);
 
+    read_dht11()
+
     while(1){
+        uint64_t currentTime = time_us_64();
         
+        if ((currentTime - lastReadTime) >= 90000000) {
+            if (read_dht11()) {
+                lastReadTime = currentTime;
+            }
+        }
+        displayValue(currentSensor);
+        sleep_ms(1000);    
+        /*
         currentSensor = TEMPERATURE;
         displayValue();
         sleep_ms(1000);
@@ -88,11 +103,15 @@ int main() {
         currentSensor = SOIL;
         displayValue();
         sleep_ms(1000);
-        
+        */
 
     }
 
     return 0;
+}
+
+void button_isr(uint gpio, uint32_t events) {
+    currentSensor = (currentSensor + 1) % 5;
 }
 
 void setup_gpios_ssd1306(void) {
@@ -154,11 +173,11 @@ bool read_dht11() {
     return false;
 }
 
-void displayValue(){
+void displayValue(int currentSensor){
     switch (currentSensor)
     {
     case TEMPERATURE:
-        read_dht11();
+        //read_dht11();
         ssd1306_clear(&disp);
         sprintf(displayString,"%s%d", sensorStrings[TEMPERATURE], temp);
         ssd1306_draw_string(&disp, 8, 2, 1, displayString);
