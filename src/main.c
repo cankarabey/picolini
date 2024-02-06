@@ -87,24 +87,6 @@ int main() {
         }
         displayValue(currentSensor);
         sleep_ms(1000);    
-        /*
-        currentSensor = TEMPERATURE;
-        displayValue();
-        sleep_ms(1000);
-        currentSensor = HUMIDITY;
-        displayValue();
-        sleep_ms(1000);
-        currentSensor = LUMEN;
-        displayValue();
-        sleep_ms(1000);
-        currentSensor = WATER;
-        displayValue();
-        sleep_ms(1000);
-        currentSensor = SOIL;
-        displayValue();
-        sleep_ms(1000);
-        */
-
     }
 
     return 0;
@@ -177,44 +159,30 @@ void displayValue(int currentSensor){
     switch (currentSensor)
     {
     case TEMPERATURE:
-        //read_dht11();
-        ssd1306_clear(&disp);
         sprintf(displayString,"%s%d", sensorStrings[TEMPERATURE], temp);
-        ssd1306_draw_string(&disp, 8, 2, 1, displayString);
-        ssd1306_show(&disp);
         break;
     case HUMIDITY:
-        //read_dht11(); TODO
-        ssd1306_clear(&disp);
         sprintf(displayString,"%s%d", sensorStrings[HUMIDITY], humidity);
-        ssd1306_draw_string(&disp, 8, 2, 1, displayString);
-        ssd1306_show(&disp);
         break;
     case LUMEN:
         read_lumen();
-        ssd1306_clear(&disp);
         sprintf(displayString,"%s%f", sensorStrings[LUMEN], lumen);
-        ssd1306_draw_string(&disp, 8, 2, 1, displayString);
-        ssd1306_show(&disp);
         break;
     case WATER:
         read_water();
-        ssd1306_clear(&disp);
         sprintf(displayString,"%s%d", sensorStrings[WATER], water);
-        ssd1306_draw_string(&disp, 8, 2, 1, displayString);
-        ssd1306_show(&disp);
         break;
     case SOIL:
         read_soil();
-        ssd1306_clear(&disp);
         sprintf(displayString,"%s%d", sensorStrings[SOIL], soil);
-        ssd1306_draw_string(&disp, 8, 2, 1, displayString);
-        ssd1306_show(&disp);
         break;
     
     default:
         break;
     }
+    ssd1306_clear(&disp);
+    ssd1306_draw_string(&disp, 8, 2, 1, displayString);
+    ssd1306_show(&disp);
 }
 
 void read_water(){
